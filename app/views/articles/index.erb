@@ -1,0 +1,55 @@
+<script type="text/javascript" src="/assets/ckeditor/ckeditor.js"></script>
+<div class="container">
+
+<div class="col-xs-6 articles"  style="margin-left:3%" >
+  <% @articles.each do |article| %>
+<div class="content content-item2" data-id="<%= article.id %>">
+<div class="row">
+  <div class="col-xs-7">
+  <div class="content-header">
+    <a href="/articles/<%= article.id %>" class="content-title act-open-content"><%= article.title %>
+
+    </a>
+  </div>
+
+  <small class="paper-authors">
+
+  </small>
+
+
+
+  <div class="content-footer">
+    <span><%= article.created_at.to_formatted_s(:short) %></span>
+    <span>Written by <%= article.author%></span>
+  </div>
+  </div>
+
+  <div class="col-xs-2">
+    <% if user_signed_in? %>
+
+    <% if current_user.admin? %>
+
+<span>
+    <div class="btn-group btn-group-sm" role="group" aria-label="...">
+
+      <%= link_to '编辑', edit_article_path(article) ,class:"btn btn-default"%>
+
+
+        <%= link_to 'Destroy', article_path(article),class:"btn btn-default",:method => :delete,
+                   data: { confirm: 'Are you sure?' }  %>
+    </div>
+    </span>
+    <% end %>
+        <% end %>
+  </div>
+</div>
+
+
+</div>
+  <%end %>
+  <div class="foot_page" style="float: right">
+    <%= paginate @articles %>
+  </div>
+</div>
+
+</div>

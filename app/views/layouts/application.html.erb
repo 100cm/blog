@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>MySite</title>
+  <%= javascript_include_tag 'application' %>
+
+  <%= csrf_meta_tags %>
+  <link href="/assets/main.css" rel="stylesheet">
+  <link href="/assets/_navbar.css" rel="stylesheet">
+  <link href="/assets/footer.css" rel="stylesheet">
+  <link href="/assets/container-wrapper.css" rel="stylesheet">
+  <link href="/assets/font-awesome.css" rel="stylesheet">
+  <link href="/assets/zhou.css" rel="stylesheet" >
+
+
+  <script type="text/javascript" src="/assets/main.js"></script>
+  <script type="text/javascript" src="/assets/ckeditor/ckeditor.js"></script>
+
+  <script type="text/javascript" src="/assets/jquery.min.js"></script>
+
+  <script  type="text/javascript" src="/assets/bootstrap.min.js" ></script>
+
+  <title>123</title>
+</head>
+<body data-spy="scroll" data-target="#myScrollspy" class="mybody">
+<%= render "layouts/navbar" %>
+
+<div  class="container-wrapper">
+  <%= yield %>
+
+
+</div>
+<% if params[:controller] == 'users' && params[:action] == 'login'  %>
+
+<% end %>
+
+<div id="footer" >
+  <address id="footer_address">
+      <span class="pull-right">
+        <a href="mailto:351711778@qq.com">Feedback</a>&nbsp;|
+        <a href="/tos">Connect me</a>
+      </span>
+    ©2015&nbsp;Icepoint
+  </address>
+</div>
+
+
+
+</body>
+</html>

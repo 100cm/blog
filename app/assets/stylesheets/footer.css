@@ -1,0 +1,17 @@
+#footer {
+    font-size: 12px;
+    border-top: 1px solid #E0E0E0;
+    margin-bottom: 0px;
+    bottom:0;
+    position: absolute;
+    text-align: left;
+    width: 100%;
+    background: #FFF none repeat scroll 0% 0%;
+    color: #999;
+    line-height: 3.5;
+    clear: both;
+}
+#footer_address >span >a{
+
+    color: #563D7C;
+}

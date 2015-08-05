@@ -1,0 +1,303 @@
+/*去掉浏览器自带样式*/
+textarea ,button,input {outline:none}
+textarea
+{
+resize: none;
+
+}
+body > .container, body > .container.module, .vegas-wrapper > .container, .container-wrapper > .container, .container-wrapper > .container.module {
+padding-top:90px;
+    padding-bottom: 40px;
+
+    min-height: 640px;
+    height: 100%;
+}
+
+
+
+.devise-panel {
+    border: 1px solid #CCC;
+    background: #FFF none repeat scroll 0% 0%;
+    font-size: 12px;
+    font-weight: normal;
+    box-shadow: 1px 3px 3px rgba(150, 152, 153, 0.3);
+    max-width: 360px;
+    margin: 0px auto;
+
+
+}
+
+.actions > input{
+
+    background-color: #563D7C;
+
+}
+.actions > input:hover{
+
+    background-color: #563D7C;
+
+}
+.sign-title{
+
+    /*color:#563D7C*/
+}
+.container-wrapper{
+    background-color: #F5F7FA;
+    height: 100%;
+
+}
+.container{
+    height: 100%;
+
+}
+#left_menu{
+
+height: 95%;
+    height: 550px;
+    border: 1px solid #E0E0E0;
+
+}
+#right_content{
+
+    border: 1px solid #E0E0E0;
+}
+
+.mybody{
+
+    padding-top: 40px;
+    position: relative;
+}
+
+.section{
+    border: 1px solid #CCC;
+    background: #FFF none repeat scroll 0% 0%;
+    font-size: 12px;
+    font-weight: normal;
+    box-shadow: 1px 3px 3px rgba(150, 152, 153, 0.3);
+margin: 5px;
+
+}
+.post-nav {
+    position: relative;
+    background: #F5F7FA none repeat scroll 0% 0%;
+    margin: -15px -20px 0px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+#lg > .form-control:focus {
+    border-color:#6441a5;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px #6441a5;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px #6441a5;
+}
+
+.module {
+
+
+    font-weight: normal;
+    box-sizing: border-box;
+    margin-top: 0px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.content-item {
+    font-size: 14px;
+    color: #333;
+    line-height: 25px;
+    margin: 0px;
+    padding: 12px 5px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.content-footer {
+    font-size: 12px;
+    color: #888;
+}
+.content-body {
+    font-size: 14px;
+    color: #333;
+    line-height: 18px;
+    padding: 4px 0px;
+}
+.paper-authors {
+    padding-top: 3px;
+}
+#more_btn{
+    border: 1px;
+color: white;
+    background-color: #6441a5;
+}
+#more_btn:hover{
+
+    color: white;
+    background-color: #563D7C;
+
+
+}
+
+
+
+#more_btn{
+
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.content-title{
+
+/*color:#563D7C ;*/
+
+}
+
+
+
+.single_panel{
+
+
+    margin-bottom: 20px;
+
+    border: 1px solid transparent;
+    border-radius: 4px;
+overflow: hidden;
+height: 800px;
+    max-width: 100%;
+
+
+    background-color: #F5F7FA;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+
+
+}
+.single_panel p{
+ width:500px; word-wrap: break-word; word-break: normal;
+}
+.single_panel{
+
+
+    margin-bottom: 20px;
+
+    border: 1px solid transparent;
+    border-radius: 4px;
+    overflow: hidden;
+    height: 800px;
+    max-width: 100%;
+
+
+    background-color: #F5F7FA;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+
+
+
+}
+.article_title{
+    text-align: center;
+    margin:0px auto;
+
+
+}
+
+.show-page{
+    box-shadow: 1px 3px 3px rgba(150, 152, 153, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    background: #FFF none repeat scroll 0% 0%;
+    font-weight: normal;
+    box-sizing: border-box;
+    margin-top: 0px;
+
+
+
+}
+.up_image{
+    position: fixed;
+float: right;
+    width: 300px;
+    height: 400px;
+}
+
+#more_col{
+
+
+    padding-right: 0px;
+}
+
+.section-signal{
+
+
+    min-height: 500px;
+}
+#page-section{
+
+    margin: 0px;
+
+
+}
+.font_span{
+
+    color:#FE5187;
+}
+.content-image{
+
+    width: 100%;
+    height: 120px;
+
+
+}
+.section-right{
+  min-height: 300px;
+
+
+
+}
+.title{
+color:#888;
+
+    width:150px;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    display:block;
+}
+.title > a:hover{
+
+    font-size:16px;
+}
+#home_row{
+   min-height: 2000px;
+    padding-left: 3%;
+
+}
+#recommend_article{
+height: 300px;
+}
+
+#home_right_panel{
+
+    margin-top: -35px;
+}
+#change{
+
+    padding: 10px;
+}
+.articles{
+
+    box-shadow: 1px 3px 3px rgba(150, 152, 153, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    background: #FFF none repeat scroll 0% 0%;
+    font-weight: normal;
+    box-sizing: border-box;
+    margin-top: 0px;
+
+}
+.content-item2{
+padding-top:10px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+input:-webkit-autofill {
+    background-color: white !important;
+}
+
+
+ul li{
+
+    list-style-type:none;
+}

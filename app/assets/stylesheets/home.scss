@@ -1,0 +1,15 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.simple_form {
+  .fa-user:before,
+  .fa-envelope:before,
+  .fa-lock:before,
+  {
+    position: relative;
+    top: 9px;
+  }
+  .error {
+    color: red;
+  }
+}

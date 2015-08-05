@@ -1,0 +1,158 @@
+<link rel="stylesheet" href="/assets/Font-Awesome/css/font-awesome.min.css">
+<%= csrf_meta_tags %>
+<script type="text/javascript">
+    window.onload = function(){
+        menuFixed('home_right_panel');
+    }
+</script>
+<div class="container"  >
+
+  <div class="row" id="home_row">
+    <div class="col-xs-8">
+
+      <div id="section-1" class="section">
+        <span>
+          <div id="page-section" class="page-section  page-header"><h4 >最新<span class="font_span">文章</span></h4>
+            <img  style="float: right ;margin-top: -20px" src="/assets/title.gif">
+          </div>
+
+          <div class="posts post-list content-list module">
+            <% @papers.each do |paper| %>
+                <div class="content content-item" data-id="<%= paper.id %>">
+
+
+                  <div class="content-header">
+                    <a href="/articles/<%= paper.id %>" class="content-title act-open-content">
+                      <%= paper.title %>
+                    </a>
+                  </div>
+
+                  <small class="paper-authors" >
+                    由 <a  class=""  style="color: #563D7C"><%= paper.author %></a> 上传&nbsp;&nbsp;<a   style="text-decoration: none" href="/articles"><span class="label label-success"><%=paper.blogtype %></span></a>
+                  </small>
+
+                  <div class="content-body">
+                    <div class="row">
+                      <div class="col-xs-2" style="text-align: center">
+
+                        <img class="content-image" src="/assets/<%=paper.blogtype%>_logo.png">
+
+
+                      </div>
+                      <div class="col-xs-10" style="font-size: 12px">
+                        <%= truncate(strip_tags(paper.text).gsub("&#13;", "").gsub("&#39;", "'"), :length=>200) %>
+                      </div>
+
+                    </div>
+                  </div>
+
+                  <div class="content-footer">
+                    <span><% @format="%Y-%m-%d %H:%M:%S" %><%= paper.created_at.localtime.strftime(@format)%></span>
+<span><a style="text-decoration: none ;float: right;cursor: pointer" href="/articles/<%= paper.id %>">
+  <i class="icon-beaker">阅读更多 </i>
+</a>
+
+</span>
+                  </div>
+
+
+
+                </div>
+            <% end %>
+            <div class="col-md-3" id="more_col" style="float:right">
+              <div class="btn-group btn-group-sm" role="group" aria-label="..." style="float: right">
+
+                <a   id="more_btn"    class="btn btn-default" href="/articles">
+                  More
+                </a>
+                <% if user_signed_in?%>
+                    <% if current_user.admin? %>
+                        <a id="more_btn" class="btn btn-default" href="/articles/new">Post</a>
+                    <% end %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+
+        </span>
+
+
+
+
+
+        <hr>
+      </div>
+
+
+    </div>
+    <div class="col-xs-4" style="padding-left: 6%" >
+
+<div id="home_right_panel">
+        <div    class="panel panel-success" id="recommend_article">
+          <div class="panel-heading"><div class="panel-title">文章<span style="color: #40E0D0">推荐</span>&nbsp;<i class="icon-thumbs-up "></i></div></div>
+          <div class="panel-body">
+
+          <ul style="float: left ;padding:0px " >
+            <% @papers2.each do |paper| %>
+            <li><a  class="title" href="#" style="color:red"><%= paper.title%></a></li>
+
+
+<%end%>
+
+          </ul>
+          </div>
+
+        </div>
+
+      <div    class="panel panel-success" style="height: 250px;margin-top:-15px">
+
+
+        <ul id="myTab" class="nav nav-tabs">
+          <li class="active">
+            <a href="#weixin" data-toggle="tab">
+           <i class="icon-comments-alt"></i>微信
+            </a>
+          </li>
+          <!--<li><a href="#ios" data-toggle="tab">iOS</a>-->
+          <!--</li>-->
+          <!--<li class="dropdown">-->
+            <!--<a href="#" id="myTabDrop1" class="dropdown-toggle"-->
+               <!--data-toggle="dropdown">Java-->
+              <!--<b class="caret"></b>-->
+            <!--</a>-->
+            <!--<ul class="dropdown-menu" role="menu" aria-labelledby="myTabDrop1">-->
+              <!--<li><a href="#jmeter" tabindex="-1" data-toggle="tab">jmeter</a></li>-->
+              <!--<li><a href="#ejb" tabindex="-1" data-toggle="tab">ejb</a></li>-->
+            <!--</ul>-->
+          <!--</li>-->
+        </ul>
+        <div id="myTabContent" class="tab-content">
+          <div class="tab-pane fade in active" id="weixin">
+            <img src="/assets/weixin.jpg" style="width: 250px;height: 230px">
+          </div>
+          <!--<div class="tab-pane fade" id="ios">-->
+            <!--<p>iOS 是一个由苹果公司开发和发布的手机操作系统。最初是于 2007 年首次发布 iPhone、iPod Touch 和 Apple-->
+              <!--TV。iOS 派生自 OS X，它们共享 Darwin 基础。OS X 操作系统是用在苹果电脑上，iOS 是苹果的移动版本。</p>-->
+          <!--</div>-->
+          <!--<div class="tab-pane fade" id="jmeter">-->
+            <!--<p>jMeter 是一款开源的测试软件。它是 100% 纯 Java 应用程序，用于负载和性能测试。</p>-->
+          <!--</div>-->
+          <!--<div class="tab-pane fade" id="ejb">-->
+            <!--<p>Enterprise Java Beans（EJB）是一个创建高度可扩展性和强大企业级应用程序的开发架构，部署在兼容应用程序服务器（比如 JBOSS、Web Logic 等）的 J2EE 上。-->
+            <!--</p>-->
+          <!--</div>-->
+        </div>
+      </div>
+
+</div>
+
+    </div>
+
+  </div>
+</div>
+
+
+
+</div>
+
+

@@ -1,0 +1,215 @@
+
+<link href="/assets/docs.min.css" type="text/css" rel="stylesheet">
+<link href="/assets/time_line.css" type="text/css" rel="stylesheet">
+
+<% if @article %>
+    <script type="text/javascript">
+        $(document).ready(function(){
+
+            var value=$("#article_text").text();
+            change(value);
+        })
+
+    </script>
+    <div class="container">
+
+    <div class="row" >
+      <div class="col-xs-7" style="margin-left:4%">
+        <section class="section section-signal">
+        <div class="page-header">
+          <h4 style="text-align: center"><%= @article.title %> </br><small><% @format="%Y-%m-%d %H:%M:%S" %><%= @article.created_at.localtime.strftime(@format)%> </small><small>written by <%= @article.author %> </small></h4>
+        </div>
+
+       <p id="change" name="change">  </p>
+
+      <div   style="display: none" id="article_text" value="">
+        <%= @article.text %>
+      </div>
+        </section>
+
+        <div class="section section-comment">
+
+          <form accept-charset="UTF-8" action="/comment" method="post" id="comment_form" class="nifty_form">
+            <div style="width: 100%;height: 155px" >
+            <input  name="id" value="<%=@article.id %>" style="display: none">
+<p>评论:</p>
+            <textarea  placeholder="文明发言..."   class="top_comment_textarea"  id="article_body" name="comment[body]" ></textarea>
+         </div>
+            <div style="width: 100%;margin-top: 30px">
+              <% if user_signed_in?%>
+            <a id="more_btn"  class="btn btn-default" name="commit" onclick="submit_comment()"  style="float: right">回复</a>
+
+
+              <%else%>
+
+                  <a id="more_btn"  class="btn btn-default" data-toggle="modal" data-target="#myModal"  name="commit"   style="float: right">请登录</a>
+
+              <%end%>
+          </div>
+          </form>
+
+          <div style="margin-top:80px">
+            <% @all_comments.each do |comment| %>
+                <section class="comments">
+                  <article class="comment">
+                    <a class="comment-img" href="#">
+                      <img src="/assets/zhujunjie.png" alt="" width="100" height="100">
+                      <div><span><p style="text-align: center"><%= User.find(comment.user_id).username%></p></span></div>
+                    </a>
+                    <div class="comment-body">
+                      <div class="text">
+                        <div style="width: 100% ;min-height: 100px;padding:12px" class="auto_wrap" >
+                          <%=  comment.body  %></div>
+                        <div style="width: 100% ;height: 20px;padding-right: 5px;">
+          <span class="attribution" >by <a href="#non"><%=User.find(comment.user_id).username%>
+          </a> <% @format="%Y-%m-%d %H:%M:%S" %><%= comment.created_at.localtime.strftime(@format)%>
+
+            <a href="javascript:;" onclick="slidetoggle( <%=comment.id %>,'<%=User.find(comment.user_id).username%>')" >回复</a>
+          </span>
+                        </div>
+
+                      </div>
+                      <%if comment.has_children? %>
+                          <%@comment_childs=comment.children %>
+                          <% @comment_childs.each do |comment_child| %>
+
+                              <div class="comment-body">
+                                <div  class="row" style="min-height: 40px;height: 30px;margin-top:5px;margin-right:0px" >
+                                  <div class="col-xs-2" style="padding: 0px">
+                                    <img src="/assets/zhujunjie.png" alt="" style="width: 40% ;max-height: 40px;float: right;margin-right: 10px">
+                                  </div>
+                                  <div class="col-xs-10" style="padding-right: 0px">
+                                    <div class=" text-reply">
+
+
+                                      <div style="width: 100% " class="auto_wrap">
+                                        <a href="#"><%= User.find(comment_child.user_id).username%>: </a>
+                                        <%=  comment_child.body  %>
+                                      </div>
+                                      <div style="width: 100%;height: 10px;padding-right: 5px">
+                                     <span class="attribution-small">  <% @format="%Y-%m-%d %H:%M:%S" %><%= comment_child.created_at.localtime.strftime(@format)%>
+
+                                        <a  onclick="slidetoggle( <%=comment.id %>,'<%=User.find(comment_child.user_id).username%>')"
+                                            href="javascript:void(0)" >回复</a></span>
+                                      </div>
+                                    </div>
+                                  </div>
+
+                                </div>
+                              </div>
+
+                          <%end%>
+                      <% end%>
+                      <div class="comment-body" style="margin-top: 10px;display: none"  id="<%= comment.id%>">
+                        <div class="row">
+                          <div class="col-xs-11" style="float: right ;">
+                            <div class="edit_comment_dialog">
+                              <textarea   id="text<%= comment.id %>" class="comment_textarea">   </textarea>
+
+                            </div>
+                            <div class="submit_button"  style="float: right">
+                              <a id="more_btn" class="btn btn-default" type="button"
+                                 onclick="reply(<%=@article.id %>,<%=comment.id %>)"
+                              >回复</a>
+                              <input id="child_username" value="" style="display: none">
+
+                            </div>
+                          </div>
+                        </div>
+
+                      </div>
+
+
+
+                    </div>
+
+                  </article>
+
+
+                </section>
+            <%end%>
+
+
+
+          </div>
+        </div>
+
+
+
+      </div>
+
+<div class="col-xs-4">
+<div class="myimage" style="margin-left: 120px" >
+  <img  class="up_image"  src="/assets/up/up.jpeg">
+
+
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+    </div>
+
+    </div>
+
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="padding-right: 0px">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">登录</h4>
+          </div>
+          <div class="modal-body" style="padding: 0px">
+            <div class="panel devise-panel">
+              <div class="panel-heading">
+                Welcome
+              </div>
+              <div class="panel-body">
+                <%= form_for(:user, :url => session_path(:user)) do |f| %>
+                    <div class="form-group has-feedback">
+                      <%= f.text_field :email, :class => "form-control", :placeholder => "Email address" %>
+                    </div>
+
+                    <div class="form-group has-feedback" style="margin-bottom: 0;">
+                      <%= f.password_field :password, :class => "form-control", :placeholder => "Password" %>
+                    </div>
+
+                    <div class="checkbox c-checkbox pull-left mt0">
+                      <label>
+                        <%= f.check_box :remember_me %>
+                        Remember me</label>
+                    </div>
+
+                    <div class="pull-right" style="display: none;">
+                      <a href="#" class="text-muted">Forget password?</a>
+                    </div>
+
+                    <%= f.submit 'Sign in', :class => "btn btn-default btn-block" ,:id =>"more_btn" %>
+
+                <% end %>
+
+                <p class="pt-lg text-center" style="margin-top: 10px;">Do not have an account?</p>
+                <a href="/users/sign_up" class="btn btn-block btn-default">Sign up now</a>
+
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
+            <!--<button type="button" class="btn btn-primary">Save changes</button>-->
+          </div>
+        </div>
+      </div>
+    </div>
+<% end %>
+
+

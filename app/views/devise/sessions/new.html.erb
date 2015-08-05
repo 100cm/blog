@@ -1,0 +1,61 @@
+<link href="/assets/Font-Awesome/css/font-awesome.css">
+<script>
+    $(function () { $("[data-toggle='tooltip']").tooltip(); });
+</script>
+<div class="container">
+  <div class="panel devise-panel" >
+
+    <div class="panel-heading text-center ">
+      <a href="#" class="sign-title">
+        Login
+      </a>
+    </div>
+    <div class="panel-body" >
+<%= simple_form_for(resource, html:{class: "mb-lg"}, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+          <% flash.each do |key, value| %>
+              <% if key!="notice"%>
+              <div class="alert alert-<%= key %> alert-danger">
+                <a href="#" data-dismiss="alert" class="close">×</a>
+                <%= value %>
+              </div>
+                  <%end%>
+          <% end %>
+    <div class="form-group has-feedback">
+    <%= f.label :email %><br />
+      <%= f.input :email, as: :string, required: false, autocomplete:"off", label: false, placeholder: "Email address", input_html: { id:"white_input", class: "form-control"} %>
+      <ul class="parsley-errors-list"></ul>
+
+
+      <i class="icon-envelope form-control-feedback text-muted"></i>
+  </div>
+
+  <div class="form-group has-feedback">
+    <%= f.label :password %><br />
+    <%= f.input :password, label:false,autocomplete: "off"  ,input_html: {class: "form-control"}%>
+    <ul class="parsley-errors-list"></ul>
+
+
+    <i class="icon-lock form-control-feedback text-muted"></i>
+  </div>
+
+  <% if devise_mapping.rememberable? -%>
+    <div class="field">
+      <%= f.check_box :remember_me %>
+      <%= f.label :remember_me %>
+    </div>
+  <% end -%>
+
+  <div class="actions">
+    <%= f.submit "Log in" , class: "btn btn-block btn-primary mt-lg" %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>
+</div>
+    </div>
+
+</div>
+
+
+

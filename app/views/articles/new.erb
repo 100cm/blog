@@ -1,0 +1,87 @@
+
+
+
+<div class="container">
+  
+<div class="section section-signal" style="max-width: 600px"   >
+
+
+  <div class="page-header">
+  <h3>New blog</h3>
+  </div>
+  <%= form_for :article  ,url: articles_path do |f| %>
+      <p>
+        <%= f.label :title %><br>
+        <%= f.text_field :title ,class:"form-control"%>
+      </p>
+
+<div class="row">
+  <div class="col-xs-3">
+        <label class="radio inline" style="margin-left: 20px;">
+          <input type="radio" name="article[blogtype]" id="radio1" value="java" >JAVA</input>
+
+
+        </label>
+      <label class="radio inline" style="margin-left: 20px;">
+        <input type="radio" name="article[blogtype]" id="radio2" value="JavaScript" >JS</input>
+
+      </label>
+  </div>
+  <div class="col-xs-3">
+
+    <label class="radio inline" style="margin-left: 20px;">
+      <input type="radio" name="article[blogtype]" id="radio1" value="ruby" >ruby</input>
+
+
+    </label>
+    <label class="radio inline" style="margin-left: 20px;">
+      <input type="radio" name="article[blogtype]" id="radio2" value="other" >other</input>
+
+
+    </label>
+
+  </div>
+  <div class="col-xs-3">
+
+    <label class="radio inline" style="margin-left: 20px;">
+      <input type="radio" name="article[blogtype]" id="radio1" value="sqlite" >sqlite</input>
+
+
+    </label>
+    <label class="radio inline" style="margin-left: 20px;">
+      <input type="radio" name="article[blogtype]" id="radio2" value="mysql" >mysql</input>
+
+
+    </label>
+
+  </div>
+
+</div>
+
+
+
+
+      <p>
+        <%= f.label :text %><br>
+    <textarea id="ck_editor" name="article[text]"></textarea>
+      </p>
+      <p>
+        <%= f.submit'提交' ,class:"btn btn-default",id:"more_btn" %>
+      </p>
+
+
+  <% end %>
+
+
+
+</div>
+
+</div>
+
+<script>
+    $(document).ready(function(){
+        console.log("a");
+        CKEDITOR.replace('ck_editor');
+    })
+
+</script>
