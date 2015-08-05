@@ -4,18 +4,23 @@ Rails.application.routes.draw do
 
   devise_for :users
   resources :articles
+ resources :comments do
 
+ end
  
   root :to=>'home#index'
 
 
+  get '/reply' => 'comments#reply'
 
+  get '/comments/reply' =>'comments#reply'
   post '/comment/:id' => 'comments#create'
   post '/comment' => 'comments#create'
 
 
-  get '/comments/reply' =>'comments#reply'
-  get '/reply' =>'comments#reply'
+
+
+
   get '/papers' => 'papers#index'
   get '/about' => 'about#index'
   get '/papers/:id' =>'papers#show'

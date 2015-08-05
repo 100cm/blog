@@ -13,7 +13,7 @@ body{
 .navbar-brand,   .navbar-nav > li > a{
 
     font-weight: 500;
-    color: #563D7C;
+    color: white;
 
 }
  .navbar-brand:focus, .navbar-brand:hover {
@@ -21,9 +21,10 @@ body{
 
  }
 #top_nav{
+
     border-bottom: 1px solid #E0E0E0;
-background-color: white;
-    position: fixed;
+background-color: #6441a5;
+    box-shadow: 4px 4px 8px rgba(0,0,0,0.28);
     right: 0px;
     left: 0px;
     z-index: 1030;
@@ -71,3 +72,14 @@ background-color: white;
      -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px #6441a5;
      box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px #6441a5;
  }
+
+ #navbar-brand-white{
+     font-family:Monaco,Menlo,Consolas,"Courier New",monospace
+ }
+#navbar-brand-white:hover{
+
+    color: white;
+
+
+
+}

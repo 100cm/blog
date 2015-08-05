@@ -39,6 +39,18 @@ gem 'carrierwave'
 
 gem 'execjs'
 
+gem 'kaminari', github: 'amatsuda/kaminari'
+gem 'bootstrap-kaminari-views'
+
+#自定义分页插件主题
+#执行rails g kaminari:views bootstrap 时报错 作用：Ensure net/https uses OpenSSL::SSL::VERIFY_PEER to
+#verify SSL certificatesand provides certificate bundle in case OpenSSL cannot find one
+gem 'certified'
+
+
+gem 'acts_as_commentable_with_threading'
+
+#图片上传插件
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -50,15 +62,6 @@ group :development, :test do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 
-  gem 'kaminari', github: 'amatsuda/kaminari'
-  gem 'bootstrap-kaminari-views'
-
-  #自定义分页插件主题
-  #执行rails g kaminari:views bootstrap 时报错 作用：Ensure net/https uses OpenSSL::SSL::VERIFY_PEER to
-  #verify SSL certificatesand provides certificate bundle in case OpenSSL cannot find one
-  gem 'certified'
-  gem 'acts_as_commentable_with_threading'
-#图片上传插件
 
 
 end

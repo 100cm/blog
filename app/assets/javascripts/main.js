@@ -6,7 +6,8 @@ function change(str){
     $("#change").append(str)
 
 }
-function reply(article_id,comment_id){
+function reply(article_id,comment_id,current_user){
+
 
     var username=$("#child_username").val()
     var comment_body=$("#text"+comment_id).val();
@@ -18,7 +19,7 @@ function reply(article_id,comment_id){
     else {
         $.ajax({
             type: "get",
-            url: "/comments/reply",
+            url: "/reply",
             data: {id: article_id, comment_id: comment_id, body: comment_body},
             dataType: "json",
             success: function (data) {
@@ -26,13 +27,35 @@ function reply(article_id,comment_id){
             },
             error: function (error) {
                 console.log(error);
+                $('#myModal').modal('show')
             }
         });
+
 
 
     }
 
 
+}
+function delete_comment(comment_id,user_id){
+console.log(user_id);
+    if(user_id){
+    var r=confirm("确定删除?");
+    if (r)
+    $.ajax({
+        type:"delete",
+        url:"/comments/:id(.:format)",
+        dataType:"json",
+        data:{comment_id:comment_id},
+        success: function (data) {
+            window.location.reload();
+        },
+        error: function (error) {
+            $('#myModal').modal('show')
+        }
+    })
+
+}
 }
 function slidetoggle(id,username){
 

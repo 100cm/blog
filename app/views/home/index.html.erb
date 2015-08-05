@@ -21,8 +21,8 @@
                 <div class="content content-item" data-id="<%= paper.id %>">
 
 
-                  <div class="content-header">
-                    <a href="/articles/<%= paper.id %>" class="content-title act-open-content">
+                  <div class="content-header" style="font-weight: 500">
+                    <a href="/articles/<%= paper.id %>"  class="content-title act-open-content">
                       <%= paper.title %>
                     </a>
                   </div>
@@ -48,7 +48,7 @@
 
                   <div class="content-footer">
                     <span><% @format="%Y-%m-%d %H:%M:%S" %><%= paper.created_at.localtime.strftime(@format)%></span>
-<span><a style="text-decoration: none ;float: right;cursor: pointer" href="/articles/<%= paper.id %>">
+<span><a   style="float: right" id="more_btn" type="button"  class="btn btn-small"  href="/articles/<%= paper.id %>">
   <i class="icon-beaker">阅读更多 </i>
 </a>
 
@@ -94,7 +94,7 @@
 
           <ul style="float: left ;padding:0px " >
             <% @papers2.each do |paper| %>
-            <li><a  class="title" href="#" style="color:red"><%= paper.title%></a></li>
+            <li style="margin-top: 6px"><a  class="title" href="/articles/<%= paper.id%>" ><%= paper.title%></a></li>
 
 
 <%end%>

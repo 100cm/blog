@@ -10,10 +10,14 @@ padding-top:90px;
     padding-bottom: 40px;
 
     min-height: 640px;
+
     height: 100%;
 }
 
+.container-wrapper .container{
 
+    min-height: 680px;
+}
 
 .devise-panel {
     border: 1px solid #CCC;
@@ -42,11 +46,14 @@ padding-top:90px;
     /*color:#563D7C*/
 }
 .container-wrapper{
-    background-color: #F5F7FA;
+min-height: 640px;
+    height: 1000px;
+
     height: 100%;
 
 }
 .container{
+
     height: 100%;
 
 }
@@ -131,7 +138,7 @@ color: white;
 #more_btn:hover{
 
     color: white;
-    background-color: #563D7C;
+    background-color: #6441a5;
 
 
 }
@@ -251,7 +258,7 @@ float: right;
 .title{
 color:#888;
 
-    width:150px;
+    width:200px;
     white-space:nowrap;
     overflow:hidden;
     text-overflow:ellipsis;

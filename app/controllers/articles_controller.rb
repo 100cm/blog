@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
 
-  skip_before_filter :verify_authenticity_token, :only => [:destroy ,:create_image]
+  skip_before_filter :verify_authenticity_token, :only => [ :create_image]
   def index
     @articles = Article.order(:id).page params[:page]
 
