@@ -1,7 +1,10 @@
 
 <link href="/assets/docs.min.css" type="text/css" rel="stylesheet">
 <link href="/assets/time_line.css" type="text/css" rel="stylesheet">
+<link href="/assets/share.css" type="text/css" rel="stylesheet">
 
+<link href="/assets/animate.min.css" rel="stylesheet" type="text/css">
+<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 <% if @article %>
     <script type="text/javascript">
         $(document).ready(function(){
@@ -13,8 +16,8 @@
     </script>
     <div class="container">
 
-    <div class="row" >
-      <div class="col-xs-7" style="margin-left:4%">
+    <div  style="width: 100%;float: left;display: inline">
+      <div class="left_content" style="margin-left:4%;float: left">
         <section class="section section-signal">
         <div class="page-header">
           <h4 style="text-align: center"><%= @article.title %> </br><small><% @format="%Y-%m-%d %H:%M:%S" %><%= @article.created_at.localtime.strftime(@format)%> </small><small>written by <%= @article.author %> </small></h4>
@@ -145,20 +148,22 @@
           </div>
         </div>
 
+      </div>
+
+
+
+      <div class="right_content"  >
+
+        <div class="myimage" style="margin-left: 60px" >
+          <img  class="up_image"  src="/assets/fun-image/<%=@random %>.jpg">
+
+
+        </div>
+
 
 
       </div>
 
-<div class="col-xs-4">
-<div class="myimage" style="margin-left: 60px" >
-  <img  class="up_image"  src="/assets/fun-image/<%=@random %>.jpg">
-
-
-</div>
-
-</div>
-
-
 
 
 
@@ -167,7 +172,60 @@
 
     </div>
 
-    </div>
+
+        <div class="htmleaf-container">
+          <div id='ss_menu' >
+            <div>
+            <a href="tencent://message/?uin=351711778">  <i class="fa fa-qq"></i></a>
+            </div>
+            <div>
+              <a href="http://service.weibo.com/share/share.php?appkey=&title=&url=&pic=&searchPic=false&style=simple" target="_blank"> <i class="fa fa-weibo"></i></a>
+            </div>
+            <div>
+             <a><i class="fa fa-weixin"></i></a>
+            </div>
+            <div>
+            <a> <i class="fa fa-renren"></i></a>
+            </div>
+            <div class='menu'>
+              <div class='share' id='ss_toggle' data-rot='180'>
+                <div class='circle'></div>
+                <div class='bar'></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <script>
+            $(document).ready(function (ev) {
+                var toggle = $('#ss_toggle');
+                var menu = $('#ss_menu');
+                var rot;
+                $('#ss_toggle').on('click', function (ev) {
+                    rot = parseInt($(this).data('rot')) - 180;
+                    menu.css('transform', 'rotate(' + rot + 'deg)');
+                    menu.css('webkitTransform', 'rotate(' + rot + 'deg)');
+                    if (rot / 180 % 2 == 0) {
+                        toggle.parent().addClass('ss_active');
+                        toggle.addClass('close');
+                    } else {
+                        toggle.parent().removeClass('ss_active');
+                        toggle.removeClass('close');
+                    }
+                    $(this).data('rot', rot);
+                });
+                menu.on('transitionend webkitTransitionEnd oTransitionEnd', function () {
+                    if (rot / 180 % 2 == 0) {
+                        $('#ss_menu div i').addClass('ss_animate');
+                    } else {
+                        $('#ss_menu div i').removeClass('ss_animate');
+                    }
+                });
+            });
+        </script>
+      </div>
+
+
 
 
 
