@@ -21,7 +21,7 @@ padding-top:90px;
 
 .devise-panel {
     border: 1px solid #CCC;
-    background: #FFF none repeat scroll 0% 0%;
+    /*background: #FFF none repeat scroll 0% 0%;*/
     font-size: 12px;
     font-weight: normal;
     box-shadow: 1px 3px 3px rgba(150, 152, 153, 0.3);
@@ -46,6 +46,7 @@ padding-top:90px;
     /*color:#563D7C*/
 }
 .container-wrapper{
+    background-color: #f4f4f4;
 min-height: 640px;
     height: 1000px;
 
@@ -76,11 +77,11 @@ height: 95%;
 }
 
 .section{
-    border: 1px solid #CCC;
-    background: #FFF none repeat scroll 0% 0%;
+    /*border: 1px solid #CCC;*/
+    /*background: #FFF none repeat scroll 0% 0%;*/
     font-size: 12px;
     font-weight: normal;
-    box-shadow: 1px 3px 3px rgba(150, 152, 153, 0.3);
+    /*box-shadow: 1px 3px 3px rgba(150, 152, 153, 0.3);*/
 margin: 5px;
 
 }
@@ -133,14 +134,14 @@ margin: 5px;
 #more_btn{
     border: 1px;
 color: white;
-    background-color: #6441a5;
+    background-color: rgba(47,47,47,0.98);
 }
 #more_btn:hover{
 
     color: white;
-    background-color: #6441a5;
+    background-color: #454545 ;
 
-
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075)
 }
 
 
@@ -289,7 +290,7 @@ height: 300px;
 
     box-shadow: 1px 3px 3px rgba(150, 152, 153, 0.1);
     border: 1px solid rgba(0, 0, 0, 0.1);
-    background: #FFF none repeat scroll 0% 0%;
+    /*background: #FFF none repeat scroll 0% 0%;*/
     font-weight: normal;
     box-sizing: border-box;
     margin-top: 0px;

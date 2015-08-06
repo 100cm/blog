@@ -30,12 +30,12 @@
     <% if current_user.admin? %>
 
 <span>
-    <div class="btn-group btn-group-sm" role="group" aria-label="...">
+    <div class="" role="group" aria-label="..." >
 
-      <%= link_to '编辑', edit_article_path(article) ,class:"btn btn-default"%>
+      <%= link_to 'Edit', edit_article_path(article) %>
 
 
-        <%= link_to 'Destroy', article_path(article),class:"btn btn-default",:method => :delete,
+         <%= link_to 'Del', article_path(article),:method => :delete,style: "color: #ea4c89",
                    data: { confirm: 'Are you sure?' }  %>
     </div>
     </span>

@@ -94,6 +94,7 @@
                                       <div style="width: 100%;height: 10px;padding-right: 5px">
                                      <span class="attribution-small">  <% @format="%Y-%m-%d %H:%M:%S" %><%= comment_child.created_at.localtime.strftime(@format)%>
                                        <%if user_signed_in? %>
+
 <% if User.find(comment_child.user_id)==current_user%>
                        <a href="javascript:;" onclick="delete_comment(<%=comment_child.id %>)" >删除</a>
 
@@ -149,8 +150,8 @@
       </div>
 
 <div class="col-xs-4">
-<div class="myimage" style="margin-left: 120px" >
-  <img  class="up_image"  src="/assets/up/up.jpeg">
+<div class="myimage" style="margin-left: 60px" >
+  <img  class="up_image"  src="/assets/fun-image/<%=@random %>.jpg">
 
 
 </div>

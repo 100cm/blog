@@ -1097,12 +1097,12 @@ textarea {
     line-height: inherit;
 }
 a {
-    color: #6441a5;
+    color: #888;
     text-decoration: none;
 }
 a:hover,
 a:focus {
-    color: #6441a5 ;
+    color: rgba(47,47,47,0.98) ;
 
 }
 a:focus {
@@ -4082,7 +4082,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .nav-tabs > li.active > a,
 .nav-tabs > li.active > a:hover,
 .nav-tabs > li.active > a:focus {
-    color: #6441a5;
+    color: #454545;
     cursor: default;
     background-color: #fff;
     border: 1px solid #ddd;
@@ -4773,7 +4773,7 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
     padding: 1px 11px;
     margin-left: -1px;
     line-height: 1.42857143;
-    color: #6441a5;
+    color: rgba(47,47,47,0.98);
     text-decoration: none;
     background-color: #fff;
     border: 1px solid #ddd;
@@ -4794,7 +4794,7 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
 .pagination > li > a:focus,
 .pagination > li > span:focus {
     z-index: 3;
-    color: #6441a5;
+    color: #454545;
     background-color: #eee;
     border-color: #ddd;
 }
@@ -4807,8 +4807,8 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
     z-index: 2;
     color: #fff;
     cursor: default;
-    background-color: #6441a5;
-    border-color: #6441a5;
+    background-color: #454545;
+    border-color: #454545;
 }
 .pagination > .disabled > span,
 .pagination > .disabled > span:hover,
@@ -5496,7 +5496,7 @@ button.list-group-item-danger.active:focus {
 }
 .panel {
     margin-bottom: 20px;
-    background-color: #fff;
+    /*background-color: #fff;*/
     border: 1px solid transparent;
     border-radius: 4px;
     -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
@@ -5769,14 +5769,14 @@ button.list-group-item-danger.active:focus {
     min-width: 250px;
     max-width: 250px;
     margin-top: 38px;
-    box-shadow: 1px 3px 3px rgba(150, 152, 153, 0.1);
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    background: #FFF none repeat scroll 0% 0%;
+    /*box-shadow: 1px 3px 3px rgba(150, 152, 153, 0.1);*/
+    /*border: 1px solid rgba(0, 0, 0, 0.1);*/
+    /*background: #FFF none repeat scroll 0% 0%;*/
 }
 .panel-success > .panel-heading {
-    color: #756F71;
-    background-color: white;
-    border-color: rgba(0, 0, 0, 0.1);
+    color: rgba(47,47,47,0.98);
+    /*background-color: white;*/
+    /*border-color: rgba(0, 0, 0, 0.1);*/
 }
 .panel-success > .panel-heading + .panel-collapse > .panel-body {
     border-top-color: #d6e9c6;
@@ -6087,7 +6087,7 @@ button.close {
 .tooltip-inner {
 
     padding: 3px 3px;
-    color: #6441a5;
+    color: #ea4c89;
     text-align: center;
     background-color: white;
     border-radius: 4px;
@@ -6104,7 +6104,7 @@ button.close {
     left: 50%;
     margin-left: -5px;
     border-width: 5px 5px 0;
-    border-top-color: #6441a5;
+    border-top-color: #ea4c89;
 }
 .tooltip.top-left .tooltip-arrow {
     right: 5px;

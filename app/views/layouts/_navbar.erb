@@ -29,20 +29,20 @@
 
 
       <ul class="nav navbar-nav">
-        <li class="active"><a href="/" class="tooltips" data-toggle="tooltip" title="多来转转">首页 </a></li>
-        <li><a href="/about" class="tooltips" data-toggle="tooltip" title="关于我">关于</a>
+        <li class="active"><a href="/" class="tooltips" data-toggle="tooltip" title="index">Home </a></li>
+        <li><a href="/about" class="tooltips" data-toggle="tooltip" title="About me">About</a>
 
           </li>
-        <li><a href="/articles" class="tooltips" data-toggle="tooltip" title="精彩文章">博文</a></li>
-        <li><a href="/articles" class="tooltips" data-toggle="tooltip" title="留言板">留言板</a></li>
+        <li><a href="/articles" class="tooltips" data-toggle="tooltip" title="Papers">Contents</a></li>
+        <li><a href="/articles" class="tooltips" data-toggle="tooltip" title="Saying">Message</a></li>
 
         <% if user_signed_in? %>
             <li>
-              <%= link_to '退出', destroy_user_session_path %>
+              <%= link_to 'Sign out', destroy_user_session_path,class: "tooltips"  ,style: "colors: #ea4c89" %>
             </li>
         <% else %>
             <li>
-              <%= link_to('登录', new_user_session_path)  %>
+              <%= link_to('Sign in', new_user_session_path,style:"color: #ea4c89;")  %>
             </li>
         <% end %>
           </ul>
