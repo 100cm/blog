@@ -17,7 +17,7 @@ class ArticlesController < ApplicationController
 
       @article=Article.find_by_id params[:id]
       @all_comments = @article.root_comments
-    @random=rand(1..70)
+    @random=rand(1..61)
 
 
   end
