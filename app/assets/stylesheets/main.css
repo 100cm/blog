@@ -348,14 +348,14 @@ width: 100%;
     }
 
 }
-@media (min-width: 768px){
+@media (min-width: 1200px){
 
 .left_content{
     float: left;
     width: 58.33333333%
 }
 }
-@media (max-width: 768px){
+@media (max-width: 1200px){
 
     .left_content{
 
@@ -363,7 +363,7 @@ width: 100%;
         width: 100%
     }
 }
-@media (min-width: 768px) {
+@media (min-width: 1200px) {
     .right_content {
 float: right;
         margin: 0px;
@@ -373,7 +373,7 @@ float: right;
     }
 }
 
-@media (max-width: 768px){
+@media (max-width: 1200px){
 
     .right_content {
         float: left;
