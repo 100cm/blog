@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   post '/comment' => 'comments#create'
 
 get '/message' => 'messages#index'
-
+post '/message' => 'messages#create'
 
 
   get '/papers' => 'papers#index'

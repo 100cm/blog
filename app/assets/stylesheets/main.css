@@ -25,7 +25,7 @@ padding-top:90px;
     font-size: 12px;
     font-weight: normal;
     box-shadow: 1px 3px 3px rgba(150, 152, 153, 0.3);
-    max-width: 360px;
+    max-width: 440px;
     margin: 0px auto;
 
 
@@ -229,8 +229,9 @@ float: right;
 }
 
 .section-signal{
+    box-shadow: 1px 3px 3px rgba(150, 152, 153, 0.1);
 
-
+border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     min-height: 500px;
 }
 #page-section{
@@ -330,12 +331,46 @@ ul li{
 
     list-style-type:none;
 }
+@media (max-width:768px ){
+
+    .large_box{
+        margin: 0px auto;
+        width: 100%;
+    }
+
+}
+@media (min-width:768px ){
+
+    .large_box{
+
+        margin: 0px auto;
+        width: 40%
+    }
+
+}
+
+
+@media (max-width:768px ){
 .message_box{
 
     margin: 0px auto;
-    width: 35%;
-    border: 1px solid red
-}
+    width:100%;
+    float: left;
+    overflow: hidden;
+    zoom: 1;
+    margin-bottom:20px ;
+}}
+@media (min-width:768px ){
+    .message_box{
+        margin: 0 auto;
+        margin-bottom:20px ;
+float: left;
+        overflow: hidden;
+        zoom: 1;
+        width:100%;
+        height:auto;
+
+    }}
 .navbar .navbar-fixed-top .container{
 
     padding: 0px;
@@ -383,5 +418,84 @@ float: right;
         width:0%;
     }
 
+
+}
+
+@media (min-width: 768px){
+    .panel-message-box{
+        float: right;
+
+        width: 85%;
+        padding:8px;
+        margin: 0 auto;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        background-color: white;
+
+    }
+}
+@media (max-width: 768px){
+    .panel-message-box{
+        float: right;
+
+        width: 80%;
+        padding:8px;
+        margin: 0 auto;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        background-color: white;
+
+    }
+}
+
+.panel-message-box img{
+
+    max-height: 100%;
+
+}
+.circle_time{
+    float: left;
+    width: 56px;
+    height: 56px;
+
+
+    -webkit-border-radius: 28px;
+    -moz-border-radius: 28px;
+    border-radius: 28px;
+    background-color: white;
+
+}
+.quote{
+    font-size: 0;
+    line-height: 99;
+    height: 29px;
+    width: 32px;
+    display: block;
+    overflow: hidden;
+    float: left;
+    background: url("/assets/message/quote_left.png") no-repeat;
+
+
+}
+.detail{
+    word-break:break-all;
+
+    clear: both;
+    padding: 6px 22px;
+}
+.quote-right{
+    font-size: 0;
+    line-height: 99;
+    height: 29px;
+    width: 32px;
+    display: block;
+    overflow: hidden;
+    float: right;
+    bottom:0;
+    margin-top: -29px;
+    background: url("/assets/message/quote_right.png") no-repeat;
+}
+.image-p  img{
+max-width: 150px;
+
+    max-height: 150px;
 
 }

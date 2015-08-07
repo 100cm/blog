@@ -49,6 +49,7 @@ class ArticlesController < ApplicationController
     render text: "<script type=\"text/javascript\">window.parent.CKEDITOR.tools.callFunction(#{params[:CKEditorFuncNum]}, '#{post_image.image.url}', '');</script>"
 
   end
+
   def update
     @article= Article.find(params[:id])
     if @article.update(article_params)

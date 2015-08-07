@@ -6,6 +6,7 @@ function change(str){
     $("#change").append(str)
 
 }
+
 function reply(article_id,comment_id,current_user){
 
 

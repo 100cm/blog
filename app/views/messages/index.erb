@@ -1,17 +1,86 @@
+<script>
+    $(document).ready(function(){
+        console.log("a");
+        CKEDITOR.replace('ckeditor');
+    })
+
+</script>
 <div  class="container">
 
+  <%if user_signed_in? %>
+      <% if current_user.admin? %>
+<div>
+  <a id="more_btn" data-toggle="modal" data-target="#myModal" type="button" class="btn btn-default">发表说说</a>
 
-<div class="row" style="margin: 0 auto">
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="padding-right: 0px">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">发表说说</h4>
+        </div>
+        <div class="modal-body" style="padding: 0px">
+          <div class="panel devise-panel">
 
+            <div class="panel-body">
+              <form action="/message" method="post" accept-charset="UTF-8">
 
-  <div    style="">
+       <textarea name="message[text]" id="ckeditor">  </textarea>
+              <button class="btn btn-default" id="more_btn" type="submit">发表</button>
+</form>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
+          <!--<button type="button" class="btn btn-primary">Save changes</button>-->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      <% end%>
+      <% end%>
+<div class="large_box" >
+
+  <% @messages.each do |m| %>
+
+  <div class="message_box">
+    <div class="circle_time">
+      <div style="font-size: 20px;text-align: center;margin-top: 5px;color: #ea4c89"> <% @format="%m" %><%= m.created_at.localtime.strftime(@format)%>月</div>
+      <div style="font-size:12px;text-align: center"> <% @format="%d" %><%= m.created_at.localtime.strftime(@format)%></div>
 
 
 
     </div>
 
+    <div    class="panel-message-box">
 
+      <b class="quote"></b>
+      <div class="detail">
+
+        <!--<img class="img-responsive" src="/assets/cat_logo.png">-->
+        <div style="text-align: left">
+          <p  id="message_text<%= m.id%>"  style=" display:none;color: #888;"><%= m.text %></p>
+
+          <p   class="image-p" id="change<%=m.id %>"  style=" color: #888;"></p>
+          <script>
+              var value=$("#message_text<%=m.id %>").text();
+              $("#change<%= m.id%>").append(value)
+               </script>
+        </div>
+
+      </div>
+      <b class="quote-right"></b>
+    </div>
+  </div>
+      <% end%>
 </div>
-
-
 </div>
+<script>
+$(document).ready(function(){
+
+
+})
+</script>
