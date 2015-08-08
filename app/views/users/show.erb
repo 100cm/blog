@@ -1,0 +1,12 @@
+<div class="container">
+  <img src="<%= @user.avatar_url%>">
+  <%= form_for :user, html: { multipart: true } do |f| %>
+      <p>
+        <label>My Avatar</label>
+        <%= image_tag(@user.avatar_url) if @user.avatar? %>
+        <%= f.file_field :avatar %>
+        <%= f.hidden_field :avatar_cache %>
+        <input type="submit">
+      </p>
+  <% end %>
+</div>

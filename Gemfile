@@ -34,7 +34,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use Capistrano for deployment
 gem 'capistrano-rails', group: :development
-gem "mini_magick"
+gem "mini_magick" ,'~> 4.2.10'
 gem 'carrierwave'
 
 gem 'execjs'
