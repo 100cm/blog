@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   before_filter :authenticate_user!, :except => [:show, :index]
-before_filter :set_title
+  before_filter :set_title
 
   before_action :configure_permitted_parameters, if: :devise_controller?
 

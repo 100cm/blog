@@ -9,7 +9,8 @@ Rails.application.routes.draw do
  end
  
   root :to=>'home#index'
-
+  get '/contents' => 'home#contents'
+get '/contents/:type' => 'home#contents'
 get 'profile'  => 'users#show'
   get '/reply' => 'comments#reply'
 
@@ -28,6 +29,8 @@ post '/message' => 'messages#create'
 
   post '/profile' => 'users#edit_avatar'
 
+  post '/search' => 'articles#search'
+get '/search' => 'articles#search'
    # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

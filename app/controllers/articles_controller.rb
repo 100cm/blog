@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
-
-  skip_before_filter :verify_authenticity_token, :only => [ :create_image]
+  before_filter :authenticate_user!, :except => [:show, :index,:search]
+  skip_before_filter :verify_authenticity_token, :only => [ :create_image,:search]
   def index
     @articles = Article.order(:id).page params[:page]
 
@@ -15,11 +15,21 @@ class ArticlesController < ApplicationController
 
   def show
 
-      @article=Article.find_by_id params[:id]
+    @article=Article.find_by_id params[:id]
+    if @article
+      @next_article =  Article.where("created_at > :start_date",
+                   {start_date: @article.created_at}).limit(1)
+
+
+      @last_article =  Article.where("created_at < :start_date",
+                                     {start_date: @article.created_at}).last(1)
+      @article.viewtimes=@article.viewtimes+1;
+      @article.save
       @all_comments = @article.root_comments
-    @random=rand(1..61)
-
-
+      @random=rand(1..61)
+else
+  redirect_to(:action => 'index')
+end
   end
 
   def create
@@ -65,6 +75,15 @@ class ArticlesController < ApplicationController
     @article.destroy
     redirect_to articles_path
   end
+
+  def search
+    @search = true
+
+    @articles = Article.find_by_sql( " select * from articles where title like '%"+params[:articles][:title]+"%'")
+    @contents = @articles
+
+  end
+
   private
   def article_params
     params.require(:article).permit(:title, :text,:author,:blogtype)

@@ -12,7 +12,7 @@ class UsersController < ApplicationController
     @user=current_user
     @user.avatar=params[:user][:avatar]
     @user.save
-   puts @user.errors.full_messages
+    puts @user.errors.full_messages
     render "show"
 
 

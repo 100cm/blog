@@ -83,6 +83,7 @@ height: 95%;
     font-weight: normal;
     /*box-shadow: 1px 3px 3px rgba(150, 152, 153, 0.3);*/
 margin: 5px;
+    margin-bottom: 100px;
 
 }
 .post-nav {
@@ -308,7 +309,8 @@ height: 300px;
 
 @media (min-width: 768px){
 .articles{
-width: 40%;
+    float: right;
+width: 56%;
     box-shadow: 1px 3px 3px rgba(150, 152, 153, 0.1);
     border: 1px solid rgba(0, 0, 0, 0.1);
     /*background: #FFF none repeat scroll 0% 0%;*/
@@ -387,7 +389,7 @@ width: 100%;
 
 .left_content{
     float: left;
-    width: 58.33333333%
+    width: 70.33333333%
 }
 }
 @media (max-width: 768px){
@@ -404,7 +406,7 @@ float: right;
         margin: 0px;
         /*border: 1px solid red;*/
         /*height: 300px;*/
-        width: 33.333333%;
+        width: 26.333333%;
     }
 }
 
@@ -493,9 +495,119 @@ float: right;
     margin-top: -29px;
     background: url("/assets/message/quote_right.png") no-repeat;
 }
-.image-p  img{
-max-width: 150px;
+.image-p  img {
+    max-width: 150px;
 
     max-height: 150px;
+}
+@media (max-width: 768px){
 
+    #menu_item{
+
+        display: none;
+    }
+
+}
+@media (max-width: 768px){
+
+    #button_menu_item{
+        margin-bottom: 10px;
+        display: block;
+        width: 100%;
+    }
+
+}
+@media (max-width: 768px){
+
+    #button_menu_item{
+
+        margin-bottom: 10px;
+        display: block;
+        width: 100%;
+    }
+
+}
+
+@media (min-width: 768px){
+
+    #right-col2{
+
+        display:none;
+    }
+
+}
+
+ul li.current a{
+
+    color: #FE5187;
+}
+.badge .red-badge{
+
+    color:#FE5187;
+    background-color: white;
+
+
+}
+
+@media (max-width: 768px){
+
+    #bread{
+width: 100%;
+        float: left;
+    }
+
+}
+@media (min-width: 768px){
+
+    #bread{
+
+        width: 56%;
+        float: right;margin-right: 8%;
+    }
+
+}
+@media (min-width: 768px){
+    .articles-none{
+        overflow: hidden;
+        zoom: 1;
+        float: right;
+        width: 56%;
+        box-shadow: 1px 3px 3px rgba(150, 152, 153, 0.1);
+        margin-right: 8%;
+
+        /*background: #FFF none repeat scroll 0% 0%;*/
+        font-weight: normal;
+        box-sizing: border-box;
+        margin-top: 0px;
+
+    }
+}
+@media (max-width: 768px){
+
+    .articles-none{
+        overflow: hidden;
+        zoom: 1;
+        width: 100%;
+        margin: 0px auto;
+    }
+
+}
+@media (min-width: 768px) {
+    .main_content {
+
+        width: 100%;
+        float: left;
+        display: inline;
+        padding-left: 50px;
+        padding-right: 50px
+    }
+}
+@media (max-width: 768px) {
+    .main_content {
+
+        width: 100%;
+        float: left;
+        display: inline;
+
+    }
 }

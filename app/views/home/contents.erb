@@ -1,0 +1,130 @@
+<script type="text/javascript" src="/assets/ckeditor/ckeditor.js"></script>
+
+
+<div class="container"   >
+
+  <div class="col-md-3" id="right-col1" style="padding: 0px;margin-left: 9%">
+
+
+
+
+    <div class="panel panel-success" id="menu_item">
+      <div class="panel-heading"><div class="panel-title">分类</div></div>
+      <div class="panel-body">
+
+        <ul style="float: left ;padding:0px ">
+          <li style="margin-top: 6px"><a class="title" href="/contents?type=ruby">Ruby ON Rails</a></li>
+
+          <li style="margin-top: 6px"><a class="title" href="/contents?type=JS">Java Script</a></li>
+          <li style="margin-top: 6px"><a class="title" href="/contents?type=sqlite">Sqlite</a></li>
+          <li style="margin-top: 6px"><a class="title" href="/contents?type=JAVA">Java</a></li>
+          <li style="margin-top: 6px"><a class="title" href="/contents?type=mysql">Mysql</a></li>
+          <li style="margin-top: 6px"><a class="title" href="/contents?type=other">Other diary</a></li>
+
+
+
+
+        </ul>
+      </div>
+
+    </div>
+
+
+  </div>
+  <div class="col-md-3" id="right-col2" style="padding: 0px">
+    <div   class="button_menu_item" style="">
+      <div class="btn-group"  id="button_menu_item" >
+        <button type="button" id="more_btn" style="width: 100%;margin-bottom: 16px" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          类别<span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" style="width: 100%;margin-top: 32px;text-align: center">
+          <li    <%if @article_type=="ruby"%> class="current"<%end%>  ><a href="/contents?type=ruby">Ruby On Rails</a></li>
+          <li  <%if @article_type=="other"%> class="current"<%end%> ><a href="/contents?type=other">Other</a></li>
+          <li  <%if @article_type=="JS"%> class="current"<%end%> ><a href="/contents?type=JS">Java Script</a></li>
+
+          <li  <%if @article_type=="JAVA"%> class="current"<%end%> ><a href="/contents?type=JAVA">Java</a></li>
+          <li  <%if @article_type=="mysql"%> class="current"<%end%> ><a href="/contents?type=mysql">mysql</a></li>
+          <li  <%if @article_type=="sqlite"%> class="current"<%end%> ><a href="/contents?type=sqlite">sqlite</a></li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+  <div   id="bread"   >
+    <ol class="breadcrumb" style="padding: 0px">
+      <li><a href="/">Home</a></li>
+      <li><a href="/articles">Contents</a></li>
+      <li class="current"><%=@article_type %></li>
+    </ol>
+  </div>
+  <%if @articles[0]%>
+  <div class=" articles"  style="margin-right: 8%" >
+
+
+
+    <% @articles.each do |article| %>
+        <div class="content content-item2" data-id="<%= article.id %>">
+          <div class="row">
+            <div class="col-xs-7">
+              <div class="content-header">
+                <a href="/articles/<%= article.id %>" class="content-title act-open-content"><%= article.title %>
+
+                </a>
+              </div>
+
+              <small class="paper-authors">
+
+              </small>
+
+
+
+              <div class="content-footer">
+                <span><%= article.created_at.to_formatted_s(:short) %></span>
+                <span>Written by <%= article.author%></span>
+              </div>
+            </div>
+
+            <div class="col-xs-2">
+              <% if user_signed_in? %>
+
+                  <% if current_user.admin? %>
+
+<span>
+    <div class="" role="group" aria-label="..." >
+
+      <%= link_to 'Edit', edit_article_path(article) %>
+
+
+      <%= link_to 'Del', article_path(article),:method => :delete,style: "color: #ea4c89",
+                  data: { confirm: 'Are you sure?' }  %>
+    </div>
+    </span>
+                  <% end %>
+              <% end %>
+            </div>
+          </div>
+
+
+        </div>
+    <%end %>
+    <div class="foot_page" style="float: right">
+      <%= paginate @articles %>
+    </div>
+
+
+  </div>
+  <%else%>
+<div class="articles-none">
+  <span style="color: #c7254e;font-family: Menlo,Monaco,Consolas,'Courier New',monospace">
+  &nbsp;当前分类还没有文章</br>
+  &nbsp;推荐文章:</br>
+    </span>
+  <% @papers2.each do |paper| %>
+      <li style="margin-top: 6px"><a  class="title" href="/articles/<%= paper.id%>" ><%= paper.title%></a></li>
+
+
+  <%end%>
+</div>
+
+  <%end%>
+</div>

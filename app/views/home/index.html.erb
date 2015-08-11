@@ -1,13 +1,13 @@
 <link rel="stylesheet" href="/assets/Font-Awesome/css/font-awesome.min.css">
 <%= csrf_meta_tags %>
-<script type="text/javascript">
-    $(document).ready(function(){
-        menuFixed('home_right_panel');
-    })
-</script>
+<!--<script type="text/javascript">-->
+//    $(document).ready(function(){
+//        menuFixed('home_right_panel');
+//    })
+<!--</script>-->
 <div class="container"  >
 
-  <div style="width: 100%;float: left;display: inline">
+  <div class="main_content">
     <div class="left_content">
 
       <div id="section-1" class="section">
@@ -28,7 +28,7 @@
                   </div>
 
                   <small class="paper-authors" >
-                    由 <a  class=""  style="color: #563D7C"><%= paper.author %></a> 上传&nbsp;&nbsp;<a   style="text-decoration: none" href="/articles"><span class="label label-success"><%=paper.blogtype %></span></a>
+                    由 <a  class=""  style="color: #563D7C"><%= paper.author %></a> 上传&nbsp;&nbsp;<a   style="text-decoration: none" href="/contents?type=<%=paper.blogtype %>"><span class="label label-success"><%=paper.blogtype %></span></a>
                   </small>
 
                   <div class="content-body">

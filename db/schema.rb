@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150808031830) do
+ActiveRecord::Schema.define(version: 20150811090659) do
+
+  create_table "articlefiles", force: :cascade do |t|
+    t.text     "title"
+    t.text     "author"
+    t.text     "file"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "articles", force: :cascade do |t|
     t.string   "title"
@@ -19,9 +28,9 @@ ActiveRecord::Schema.define(version: 20150808031830) do
     t.string   "text"
     t.string   "author"
     t.string   "blogtype"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer  "view_times"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.integer  "viewtimes",  default: 0
   end
 
   create_table "comments", force: :cascade do |t|

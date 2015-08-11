@@ -10,10 +10,13 @@
     <div class="container">
 
     <div  style="width: 100%;float: left;display: inline">
-      <div class="left_content" style="margin-left:4%;float: left">
+      <div class="left_content" style="float: left;    width: 60%;
+              margin-left: 50px;">
+
         <section class="section section-signal">
         <div class="page-header">
           <h4 style="text-align: center"><%= @article.title %> </br><small><% @format="%Y-%m-%d %H:%M:%S" %><%= @article.created_at.localtime.strftime(@format)%> </small><small>written by <%= @article.author %> </small></h4>
+         <span style="float: right;margin-right: 15px;margin-top: -10px;">浏览次数: <span style="color:<%=@color %> "><%=@article.viewtimes %></span></span>
         </div>
 
        <p id="change" name="change">
@@ -22,7 +25,24 @@
 
 
         </section>
+        <div class="section section-comment" >
 
+          <%if @last_article[0]%>
+              <span style="float: left"><a href="/articles/<%=@last_article[0].id %>">上一篇:<%= @last_article[0].title%></a></span>
+          <%else%>
+              <span style="float: left"><a>没有上一篇了</a> </span>
+          <% end%>
+
+          <% if @next_article[0]%>
+
+          <span style="float: right"><a href="/articles/<%=@next_article[0].id %>">下一篇:<%= @next_article[0].title%></a></span>
+<% else %>
+       <span style="float: right"> 没有下一篇了</span>
+         <% end%>
+
+
+
+        </div>
         <div class="section section-comment">
 
           <form accept-charset="UTF-8" action="/comment" method="post" id="comment_form" class="nifty_form">
@@ -50,7 +70,12 @@
                 <section class="comments">
                   <article class="comment">
                     <a class="comment-img" href="#">
-                      <img src="/assets/cat_logo.png" alt="" width="100" height="100">
+                      <% if User.find(comment.user_id).avatar=nil%>
+                          <img src="<%= User.find(comment.user_id).avatar %>" alt="" width="100" height="100">
+                          <% else %>
+                          <img src="/assets/foot.png" alt="" width="100" height="100">
+                      <%end%>
+
                       <div><span><p style="text-align: center"><%= User.find(comment.user_id).username%></p></span></div>
                     </a>
                     <div class="comment-body">
@@ -146,7 +171,7 @@
 
 
 
-      <div class="right_content"  >
+      <div class="right_content"  style="margin-right: 50px">
 
         <div class="myimage" style="margin-left: 60px" >
           <img  class="up_image"  src="/assets/fun-image/<%=@random %>.jpg">
@@ -167,55 +192,55 @@
     </div>
 
 
-        <div class="htmleaf-container">
-          <div id='ss_menu' >
-            <div>
-            <a href="tencent://message/?uin=351711778">  <i class="fa fa-qq"></i></a>
-            </div>
-            <div>
-              <a href="http://service.weibo.com/share/share.php?appkey=&title=&url=&pic=&searchPic=false&style=simple" target="_blank"> <i class="fa fa-weibo"></i></a>
-            </div>
-            <div>
-             <a><i class="fa fa-weixin"></i></a>
-            </div>
-            <div>
-            <a> <i class="fa fa-renren"></i></a>
-            </div>
-            <div class='menu'>
-              <div class='share' id='ss_toggle' data-rot='180'>
-                <div class='circle'></div>
-                <div class='bar'></div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <script>
-            $(document).ready(function (ev) {
-                var toggle = $('#ss_toggle');
-                var menu = $('#ss_menu');
-                var rot;
-                $('#ss_toggle').on('click', function (ev) {
-                    rot = parseInt($(this).data('rot')) - 180;
-                    menu.css('transform', 'rotate(' + rot + 'deg)');
-                    menu.css('webkitTransform', 'rotate(' + rot + 'deg)');
-                    if (rot / 180 % 2 == 0) {
-                        toggle.parent().addClass('ss_active');
-                        toggle.addClass('close');
-                    } else {
-                        toggle.parent().removeClass('ss_active');
-                        toggle.removeClass('close');
-                    }
-                    $(this).data('rot', rot);
-                });
-                menu.on('transitionend webkitTransitionEnd oTransitionEnd', function () {
-                    if (rot / 180 % 2 == 0) {
-                        $('#ss_menu div i').addClass('ss_animate');
-                    } else {
-                        $('#ss_menu div i').removeClass('ss_animate');
-                    }
-                });
-            });
-        </script>
+        <!--<div class="htmleaf-container">-->
+          <!--<div id='ss_menu' >-->
+            <!--<div>-->
+            <!--<a href="tencent://message/?uin=351711778">  <i class="fa fa-qq"></i></a>-->
+            <!--</div>-->
+            <!--<div>-->
+              <!--<a href="http://service.weibo.com/share/share.php?appkey=&title=&url=&pic=&searchPic=false&style=simple" target="_blank"> <i class="fa fa-weibo"></i></a>-->
+            <!--</div>-->
+            <!--<div>-->
+             <!--<a><i class="fa fa-weixin"></i></a>-->
+            <!--</div>-->
+            <!--<div>-->
+            <!--<a> <i class="fa fa-renren"></i></a>-->
+            <!--</div>-->
+            <!--<div class='menu'>-->
+              <!--<div class='share' id='ss_toggle' data-rot='180'>-->
+                <!--<div class='circle'></div>-->
+                <!--<div class='bar'></div>-->
+              <!--</div>-->
+            <!--</div>-->
+          <!--</div>-->
+        <!--</div>-->
+        <!--<script>-->
+<!--//            $(document).ready(function (ev) {-->
+<!--//                var toggle = $('#ss_toggle');-->
+<!--//                var menu = $('#ss_menu');-->
+<!--//                var rot;-->
+<!--//                $('#ss_toggle').on('click', function (ev) {-->
+<!--//                    rot = parseInt($(this).data('rot')) - 180;-->
+<!--//                    menu.css('transform', 'rotate(' + rot + 'deg)');-->
+<!--//                    menu.css('webkitTransform', 'rotate(' + rot + 'deg)');-->
+<!--//                    if (rot / 180 % 2 == 0) {-->
+<!--//                        toggle.parent().addClass('ss_active');-->
+<!--//                        toggle.addClass('close');-->
+<!--//                    } else {-->
+<!--//                        toggle.parent().removeClass('ss_active');-->
+<!--//                        toggle.removeClass('close');-->
+<!--//                    }-->
+<!--//                    $(this).data('rot', rot);-->
+<!--//                });-->
+<!--//                menu.on('transitionend webkitTransitionEnd oTransitionEnd', function () {-->
+<!--//                    if (rot / 180 % 2 == 0) {-->
+<!--//                        $('#ss_menu div i').addClass('ss_animate');-->
+<!--//                    } else {-->
+<!--//                        $('#ss_menu div i').removeClass('ss_animate');-->
+<!--//                    }-->
+<!--//                });-->
+<!--//            });-->
+        <!--</script>-->
       </div>
 
 
