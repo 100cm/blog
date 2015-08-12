@@ -500,7 +500,7 @@ float: right;
 
     max-height: 150px;
 }
-@media (max-width: 768px){
+@media screen and(max-width: 768px){
 
     #menu_item{
 
@@ -508,7 +508,7 @@ float: right;
     }
 
 }
-@media (max-width: 768px){
+@media screen and(max-width: 768px){
 
     #button_menu_item{
         margin-bottom: 10px;
@@ -517,7 +517,7 @@ float: right;
     }
 
 }
-@media (max-width: 768px){
+@media screen and(max-width: 768px){
 
     #button_menu_item{
 
@@ -528,7 +528,7 @@ float: right;
 
 }
 
-@media (min-width: 768px){
+@media screen and (min-width: 768px){
 
     #right-col2{
 
@@ -549,7 +549,7 @@ ul li.current a{
 
 }
 
-@media (max-width: 768px){
+@media screen and(max-width: 768px){
 
     #bread{
 width: 100%;
@@ -557,7 +557,7 @@ width: 100%;
     }
 
 }
-@media (min-width: 768px){
+@media screen and (min-width: 768px){
 
     #bread{
 
@@ -566,7 +566,7 @@ width: 100%;
     }
 
 }
-@media (min-width: 768px){
+@media screen and (min-width: 768px){
     .articles-none{
         overflow: hidden;
         zoom: 1;
@@ -582,7 +582,7 @@ width: 100%;
 
     }
 }
-@media (max-width: 768px){
+@media screen and(max-width: 768px){
 
     .articles-none{
         overflow: hidden;
@@ -592,7 +592,7 @@ width: 100%;
     }
 
 }
-@media (min-width: 768px) {
+@media screen and(min-width: 768px) {
     .main_content {
 
         width: 100%;
@@ -602,12 +602,36 @@ width: 100%;
         padding-right: 50px
     }
 }
-@media (max-width: 768px) {
+@media screen and(max-width: 768px) {
     .main_content {
 
         width: 100%;
         float: left;
         display: inline;
 
+    }
+}
+@media screen and(min-width: 768px) {
+    .single_article {
+
+        width: 60%;
+        float: left;
+        margin-left: 50px;
+
+    }
+}
+@media screen and(max-width: 768px) {
+    .single_article {
+
+        width: 100%;
+
+
+    }
+}
+@media screen and(max-width: 768px) {
+    .container-wrapper .container {
+
+padding-left: 0px;
+padding-right: 0px;
     }
 }
